@@ -31,12 +31,7 @@
                                         </button>
                                     </form>
                                     <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Lupa Katasandi?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="<?= base_url("auth/registration") ?>">Buat Akun!</a>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>

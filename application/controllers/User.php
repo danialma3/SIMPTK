@@ -23,7 +23,7 @@ class User extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('Admin/index', $data);
+        $this->load->view('User/index', $data);
         $this->load->view('templates/footer');
     }
     public function dataPTK()
@@ -34,7 +34,7 @@ class User extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('Admin/dataPTK', $data);
+        $this->load->view('user/dataPTK', $data);
         $this->load->view('templates/footer');
     }
 }

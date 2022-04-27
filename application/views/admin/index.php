@@ -14,7 +14,7 @@
                         <div class="col mr-2">
                             <div class="text-lg font-weight-bold text-warning text-uppercase mb-1">
                                 PTK PNS</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $pns["COUNT(status_kepegawaian)"]; ?> Orang</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $pns["a"]; ?> Orang</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -50,7 +50,7 @@
                         <div class="col mr-2">
                             <div class="text-lg font-weight-bold text-primary text-uppercase mb-1">
                                 PTK PPPK</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">0 Orang</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $pppk["COUNT(status_kepegawaian)"]; ?> Orang</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-users fa-2x text-gray-300"></i>
