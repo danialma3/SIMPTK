@@ -102,8 +102,7 @@ class Admin extends CI_Controller
                 'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'role_id' => 2,
                 'is_active' => 1,
-                'date_create' => time()
-
+                'date_create' => date("Y-m-d")
             ];
 
             $this->db->insert('user', $data);
