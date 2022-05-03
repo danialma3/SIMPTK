@@ -25,7 +25,12 @@
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
+                            <?php
+                            if ($user['role_id'] == 1) {
+                                $path = 'admin/profile';
+                            } else $path = 'user/profile';
+                            ?>
+                            <a class="dropdown-item" href="<?= base_url($path) ?>">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Profile
                             </a>

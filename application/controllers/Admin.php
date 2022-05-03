@@ -25,7 +25,7 @@ class Admin extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('Admin/index', $data);
+        $this->load->view('admin/index', $data);
         $this->load->view('templates/footer');
     }
 
@@ -37,8 +37,10 @@ class Admin extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('Admin/dataPTK', $data);
+        $this->load->view('admin/dataPTK', $data);
         $this->load->view('templates/footer');
+
+        
     }
 
     public function dataAkun()
@@ -49,9 +51,28 @@ class Admin extends CI_Controller
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('Admin/dataAkun', $data);
+        $this->load->view('admin/dataAkun', $data);
+        $this->load->view('templates/footer');
+
+        $data = [
+            'email' => htmlspecialchars($this->input->post('email'))
+        ];
+        $this->db->where('email', $data['email']);
+        $this->db->delete('user');
+    }
+
+    public function profile()
+    {
+        $data['title'] = 'Profile User';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['akun'] = $this->db->get('user')->result_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('admin/profile', $data);
         $this->load->view('templates/footer');
     }
+
     public function registration()
     {
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
@@ -71,7 +92,7 @@ class Admin extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('Admin/registration', $data);
+            $this->load->view('admin/registration', $data);
             $this->load->view('templates/footer');
         } else {
             $data = [

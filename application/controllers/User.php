@@ -12,6 +12,7 @@ class User extends CI_Controller
     {
         $data['title'] = 'Info Cepat';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        
         $data['pns'] = $this->db->query("SELECT COUNT(status_kepegawaian) FROM tb_ptk WHERE status_kepegawaian = 'PNS';")->row_array();
         $data['cpns'] = $this->db->query("SELECT COUNT(status_kepegawaian) FROM tb_ptk WHERE status_kepegawaian = 'CPNS';")->row_array();
         $data['honor_provinsi'] = $this->db->query("SELECT COUNT(status_kepegawaian) FROM tb_ptk WHERE status_kepegawaian = 'Honor Daerah TK.I Provinsi';")->row_array();
@@ -35,6 +36,18 @@ class User extends CI_Controller
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
         $this->load->view('user/dataPTK', $data);
+        $this->load->view('templates/footer');
+    }
+
+    public function profile()
+    {
+        $data['title'] = 'Profile User';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['akun'] = $this->db->get('user')->result_array();
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('user/profile', $data);
         $this->load->view('templates/footer');
     }
 }

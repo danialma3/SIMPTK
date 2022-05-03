@@ -30,7 +30,12 @@
                                         <td><?= $a["nama"]; ?></td>
                                         <td><?= $a["email"]; ?></td>
                                         <td><?= $a["date_create"]; ?></td>
-                                        <td><button type="button" class="btn btn-danger">Hapus</button></td>
+                                        <td>
+                                            <form method="post" action="<?= base_url('admin/dataAkun'); ?>">
+                                                <input type="text" id="email" name="email" value="<?= $a["email"]; ?>" style="display: none;">
+                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
